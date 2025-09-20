@@ -61,7 +61,7 @@ void Insertion::insertionSort4(int arr[], int size) {
     int aux = arr[size - 1];
     int j = size - 2;
 
-    while ( j > 0 && aux < arr[j]) {
+    while ( j >= 0 && arr[j] > aux) {
         arr[j + 1] = arr[j];
         j--;
     }
