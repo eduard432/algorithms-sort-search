@@ -2,6 +2,9 @@
 #define BUBBLE_H
 
 class Bubble {
+    private:
+        static void recursivo(int arr[], int size, int i, int j, bool hasMadeSwap);
+
     public:
         static void bubbleSort1(int arr[], int size);
         static void bubbleSort2(int arr[], int size);

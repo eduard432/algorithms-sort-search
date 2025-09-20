@@ -14,7 +14,7 @@ int main () {
 
     // Utils::printArray(arr, size);
     Utils::printArray(arr, size);
-    Merge::mergeSort1(arr, size);
+    Bubble::bubbleSort4(arr, size);
     std::cout << "\n";
     Utils::printArray(arr, size);
 
