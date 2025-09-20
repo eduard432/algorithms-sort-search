@@ -49,27 +49,50 @@ void Bubble::bubbleSort3(int arr[], int size) {
     }
 }
 
-void Bubble::recursivo(int arr[], int size, int i, int j, bool hasMadeSwap) {
-    if (i >= size - 1 || !hasMadeSwap) {
+// Bubble sort recursivo, muy mal optimizado (hace muchas pasadas)
+void Bubble::recursivo1(int arr[], int size, int i, int j) {
+    if (i > size - 1) {
         return;
     }
 
-    if (j >= i) {
-        recursivo(arr, size, i + 1, size - 1, hasMadeSwap);
+    if (j > size - 1 - i) {
+        recursivo1(arr, size, i + 1, 0);
         return;
     }
+    
 
-    if (arr[j] < arr[j - 1]) {
+    if (arr[j] > arr[j + 1]) {
         int aux = arr[j];
-        arr[j] = arr[j - 1];
-        arr[j - 1] = aux;
-        hasMadeSwap = true;
+        arr[j] = arr[j + 1];
+        arr[j + 1] = aux;
     }
 
-    recursivo(arr, size, i, j - 1, hasMadeSwap);
+    recursivo1(arr, size, i, j + 1);
 }
 
 
 void Bubble::bubbleSort4(int arr[], int size) {
-    recursivo(arr, size, 0, size - 1, true);
+    recursivo1(arr, size, 0, size - 1);
+}
+
+// Bubble sort hibrido: recursivo/iterativo
+// Recursividad bucle externo
+// Iteratividad bucle interno
+// Usamos el int size como la i del bucle externo
+void Bubble::bubbleSort5(int arr[], int size) {
+    if (size == 1) return;
+
+    bool hasMadeSwap = false;
+    for (int j = 0; j < size - 1; j++) {
+        if(arr[j] > arr[j + 1]) {
+            int aux = arr[j];
+            arr[j] = arr[j + 1];
+            arr[j + 1] = aux;
+            hasMadeSwap = true;
+        }
+    }
+    if(!hasMadeSwap) return;
+
+
+    bubbleSort5(arr, size - 1);
 }

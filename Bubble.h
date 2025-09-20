@@ -3,7 +3,7 @@
 
 class Bubble {
     private:
-        static void recursivo(int arr[], int size, int i, int j, bool hasMadeSwap);
+        static void recursivo1(int arr[], int size, int i, int j);
 
     public:
         static void bubbleSort1(int arr[], int size);
