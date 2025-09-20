@@ -96,3 +96,34 @@ void Bubble::bubbleSort5(int arr[], int size) {
 
     bubbleSort5(arr, size - 1);
 }
+
+// Recursivo un poco optimizado con el hasMadeSwap
+void Bubble::recursivo2(int arr[], int size, int i, int j, bool hasMadeSwap) {
+    if (i > size - 1 || !hasMadeSwap) {
+        return;
+    }
+
+    if (j == 0) {
+        hasMadeSwap = false;
+    }
+
+    if (j > size - 1 - i) {
+        recursivo2(arr, size, i + 1, 0, hasMadeSwap);
+        return;
+    }
+    
+
+    if (arr[j] > arr[j + 1]) {
+        int aux = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = aux;
+        hasMadeSwap = true;
+    }
+
+    recursivo2(arr, size, i, j + 1, hasMadeSwap);
+    
+}
+
+void Bubble::bubbleSort6(int arr[], int size) {
+    recursivo2(arr, size, 0, size - 1, true);
+}
