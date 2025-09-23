@@ -1,5 +1,5 @@
 #include "Insertion.h"
-#include "Utils.h"
+#include "../Utils.h"
 #include <iostream>
 
 void Insertion::insertionSort1(int arr[], int size) {
