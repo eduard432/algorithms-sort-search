@@ -1,5 +1,6 @@
 #include "Quick.h"
-
+#include "../Utils.h"
+#include <iostream>
 
 void Quick::quickSort1(int arr[], int size) {
     if (size <= 1) return;
@@ -29,6 +30,6 @@ int Quick::partition(int arr[], int start, int end) {
     aux = arr[index];
     arr[index] = arr[start];
     arr[start] = aux;
-
+    
     return index;
 }
