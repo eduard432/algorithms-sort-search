@@ -33,4 +33,5 @@ const main = () => {
 const randomArr = (n = 10, max = 100) =>
   Array.from({ length: n }, () => Math.floor(Math.random() * max) + 1);
 
-main()
+const arr = randomArr(5, 20)
+console.log(arr)
